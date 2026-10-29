@@ -1,0 +1,1456 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="株式会社AG｜電気工事・通信工事・調査設計">
+<title>株式会社AG | Infrastructure for the Future</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --blue: #1689d4;
+  --blue-dark: #07558d;
+  --navy: #102b43;
+  --sky: #eaf6ff;
+  --text: #24394b;
+  --muted: #6f8190;
+  --line: #e0e9ef;
+  --white: #fff;
+  --header-height: 82px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: white;
+  font-family: "DM Sans", "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+img { display: block; max-width: 100%; }
+section { scroll-margin-top: var(--header-height); }
+
+.container {
+  width: min(1200px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 42px;
+}
+
+.section-title {
+  margin: 7px 0 0;
+  color: var(--navy);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1.25;
+}
+
+.section-copy {
+  max-width: 440px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 13px 0;
+  border-bottom: 1px solid currentColor;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.arrow-link span {
+  transition: transform .25s ease;
+}
+.arrow-link:hover span { transform: translateX(5px); }
+
+/* HEADER */
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  height: var(--header-height);
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid rgba(16,43,67,.08);
+  backdrop-filter: blur(14px);
+}
+
+.header-inner {
+  width: min(1320px, calc(100% - 56px));
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  color: var(--navy);
+  line-height: 1.15;
+}
+
+.logo-main {
+  font-size: 31px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.logo-sub {
+  margin-top: 4px;
+  font-size: 9px;
+  letter-spacing: .17em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 42px);
+}
+
+.nav a {
+  position: relative;
+  padding: 8px 0;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nav a:not(.nav-contact)::after {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 2px;
+  background: var(--blue);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s;
+}
+
+.nav a:hover::after { transform: scaleX(1); }
+
+.nav .nav-contact {
+  padding: 12px 21px;
+  color: white;
+  background: var(--blue);
+  border-radius: 3px;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(760px, 88svh);
+  margin-top: var(--header-height);
+  overflow: hidden;
+  background: #e7f4fc;
+  isolation: isolate;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(241,249,255,.97) 0%,
+    rgba(241,249,255,.88) 43%,
+    rgba(241,249,255,.08) 100%),
+    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85")
+    center 55% / cover;
+  content: "";
+}
+
+.hero::after {
+  position: absolute;
+  z-index: -1;
+  right: -130px;
+  bottom: -300px;
+  width: 650px;
+  height: 650px;
+  border: 1px solid rgba(22,137,212,.18);
+  border-radius: 50%;
+  box-shadow: 0 0 0 70px rgba(22,137,212,.035),
+              0 0 0 140px rgba(22,137,212,.025);
+  content: "";
+}
+
+.hero-content {
+  width: min(1320px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 70px 0 90px;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--blue-dark);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .22em;
+}
+
+.hero-label::before {
+  width: 35px;
+  height: 2px;
+  background: var(--blue);
+  content: "";
+}
+
+.hero h1 {
+  margin: 30px 0 24px;
+  color: var(--navy);
+  font-size: clamp(38px, 6.2vw, 78px);
+  font-weight: 700;
+  letter-spacing: -.055em;
+  line-height: 1.3;
+}
+
+.hero h1 em {
+  color: var(--blue);
+  font-style: normal;
+}
+
+.hero-description {
+  max-width: 480px;
+  color: #526c80;
+  font-size: 14px;
+  line-height: 2.1;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 36px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-width: 190px;
+  padding: 15px 19px;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  background: var(--blue);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .25s;
+}
+
+.btn:hover {
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: rgba(255,255,255,.75);
+  color: var(--navy);
+  border-color: #cfdee8;
+}
+
+.btn-outline:hover { color: white; }
+
+.hero-scroll {
+  position: absolute;
+  right: 35px;
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--navy);
+  font-size: 10px;
+  letter-spacing: .16em;
+  writing-mode: vertical-rl;
+}
+
+.hero-scroll::after {
+  width: 1px;
+  height: 55px;
+  background: var(--blue);
+  content: "";
+}
+
+/* ABOUT */
+.about {
+  padding: 105px 0 115px;
+  overflow: hidden;
+}
+
+.photo-marquee {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  margin-bottom: 55px;
+}
+
+.photo-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: drift 52s linear infinite;
+}
+
+.photo-track.reverse {
+  margin-left: -80px;
+  animation-direction: reverse;
+  animation-duration: 60s;
+}
+
+.photo-marquee:hover .photo-track { animation-play-state: paused; }
+
+.photo {
+  flex: 0 0 290px;
+  height: 170px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #eaf2f8;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s;
+}
+
+.photo:hover img { transform: scale(1.06); }
+
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.about-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 45px;
+}
+
+.about-intro .section-title { max-width: 650px; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-item {
+  min-height: 185px;
+  padding: 29px 23px;
+  border-right: 1px solid var(--line);
+  transition: background .25s;
+}
+
+.about-item:first-child { border-left: 1px solid var(--line); }
+.about-item:hover { background: var(--sky); }
+
+.about-number {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.about-item h3 {
+  margin: 20px 0 8px;
+  color: var(--navy);
+  font-size: 17px;
+}
+
+.about-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.about-item .item-arrow {
+  display: block;
+  margin-top: 12px;
+  color: var(--blue);
+  text-align: right;
+}
+
+/* SLOGAN */
+.slogan {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background: #edf7fd;
+}
+
+.slogan-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.slogan .eyebrow { margin-bottom: 20px; }
+
+.slogan h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(28px, 4.5vw, 54px);
+  font-weight: 700;
+  letter-spacing: .07em;
+  line-height: 1.8;
+}
+
+.slogan h2 span { color: var(--blue); }
+
+.slogan p {
+  margin: 20px auto 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.slogan-mark {
+  position: absolute;
+  top: -110px;
+  left: -30px;
+  color: rgba(22,137,212,.055);
+  font-size: 300px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* SERVICE */
+.service {
+  padding: 110px 0 120px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  min-height: 405px;
+  align-items: end;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--navy);
+  color: white;
+  isolation: isolate;
+}
+
+.service-card::before {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  content: "";
+  transition: transform .6s;
+}
+
+.service-card:nth-child(1)::before {
+  background-image: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85");
+}
+.service-card:nth-child(2)::before {
+  background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85");
+}
+.service-card:nth-child(3)::before {
+  background-image: url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=85");
+}
+
+.service-card::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(9,35,56,.08) 0%,
+    rgba(9,35,56,.35) 38%,
+    rgba(9,35,56,.92) 100%);
+  content: "";
+  transition: background .3s;
+}
+
+.service-card:hover::before { transform: scale(1.07); }
+
+.service-card-content {
+  width: 100%;
+  padding: 32px 28px;
+}
+
+.service-card .eyebrow { color: #9cdbff; }
+
+.service-card h3 {
+  margin: 13px 0;
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: 1.5;
+}
+
+.service-card p {
+  min-height: 48px;
+  margin: 0;
+  color: rgba(255,255,255,.82);
+  font-size: 12px;
+}
+
+.service-card .card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 23px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.38);
+  font-size: 11px;
+}
+
+.card-circle {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 50%;
+  transition: .25s;
+}
+
+.service-card:hover .card-circle {
+  color: var(--blue-dark);
+  background: white;
+}
+
+/* NEWS */
+.news {
+  padding: 100px 0;
+  background: #f6f9fb;
+}
+
+.news-layout {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 70px;
+}
+
+.news-list { border-top: 1px solid var(--line); }
+
+.news-item {
+  display: grid;
+  grid-template-columns: 100px 90px 1fr 20px;
+  align-items: center;
+  gap: 16px;
+  padding: 21px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.news-date {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.news-category {
+  padding: 4px 8px;
+  border: 1px solid #d7e6ef;
+  border-radius: 2px;
+  color: var(--blue-dark);
+  font-size: 10px;
+  text-align: center;
+}
+
+.news-title {
+  color: var(--navy);
+  font-size: 13px;
+}
+
+.news-item:hover .news-title { color: var(--blue); }
+
+/* QUALIFICATIONS */
+.qualification { padding: 105px 0; }
+
+.qualification-inner {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.qualification-panel {
+  padding: 42px;
+  background: var(--sky);
+  border-radius: 5px;
+}
+
+.qualification-panel > p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.qualification-numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 35px;
+}
+
+.qualification-number {
+  padding-top: 18px;
+  border-top: 1px solid #c6e0f1;
+}
+
+.qualification-number strong {
+  color: var(--blue-dark);
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.qualification-number span {
+  margin-left: 5px;
+  color: var(--navy);
+  font-size: 12px;
+}
+
+.qualification-number p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* COMPANY */
+.company {
+  padding: 105px 0;
+  background: #f7fafc;
+}
+
+.company-layout {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 75px;
+}
+
+.company-info {
+  border-top: 1px solid var(--line);
+}
+
+.company-row {
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+
+.company-row dt { color: var(--muted); }
+.company-row dd { margin: 0; color: var(--navy); }
+
+.partner-area { margin-top: 40px; }
+
+.partner-area h3 {
+  color: var(--navy);
+  font-size: 13px;
+}
+
+.partner-logos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.partner-logo {
+  display: grid;
+  min-height: 82px;
+  place-items: center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: white;
+  color: #718393;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* RECRUIT */
+.recruit {
+  position: relative;
+  padding: 95px 0;
+  overflow: hidden;
+  background: var(--navy);
+  color: white;
+  isolation: isolate;
+}
+
+.recruit::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11,39,61,.97), rgba(11,39,61,.77)),
+    url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85")
+    center / cover;
+  content: "";
+}
+
+.recruit-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.recruit .eyebrow { color: #8bd2ff; }
+
+.recruit h2 {
+  margin: 12px 0 18px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.45;
+}
+
+.recruit p {
+  max-width: 580px;
+  color: #d1e0ec;
+  font-size: 13px;
+}
+
+.recruit .btn {
+  flex-shrink: 0;
+  background: white;
+  color: var(--navy);
+  border-color: white;
+}
+
+/* CONTACT */
+.contact { padding: 110px 0; }
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 80px;
+}
+
+.contact-note {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.contact-note strong {
+  display: block;
+  margin-top: 28px;
+  color: var(--navy);
+  font-size: 17px;
+}
+
+.contact-form { min-width: 0; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  align-items: start;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.form-row label {
+  padding-top: 10px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.required {
+  margin-left: 7px;
+  color: #df5e52;
+  font-size: 10px;
+}
+
+.form-control {
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 1px solid #dce6ed;
+  border-radius: 3px;
+  outline: none;
+  background: #fbfdfe;
+  color: var(--navy);
+  font-size: 12px;
+}
+
+.form-control:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(22,137,212,.09);
+}
+
+textarea.form-control {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-check {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  margin: 24px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+  padding: 60px 0 25px;
+  background: #f0f6fa;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 45px;
+}
+
+.footer-description {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: 20px 28px;
+}
+
+.footer-links a {
+  color: var(--navy);
+  font-size: 11px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #dbe5ec;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 900px) {
+  :root { --header-height: 72px; }
+  .container { width: min(100% - 40px, 700px); }
+  .header-inner { width: calc(100% - 36px); }
+  .menu-toggle { display: block; }
+  .nav {
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+    left: 0;
+    display: none;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 24px 25px;
+    background: white;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav.is-open { display: flex; flex-direction: column; }
+  .nav a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .nav .nav-contact { margin-top: 12px; padding: 13px 16px; text-align: center; }
+  .hero { min-height: 660px; }
+  .hero-content { width: calc(100% - 40px); }
+  .hero::before {
+    background:
+      linear-gradient(90deg, rgba(241,249,255,.96), rgba(241,249,255,.66)),
+      url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80") center / cover;
+  }
+  .section-head, .about-intro { align-items: start; flex-direction: column; }
+  .about-grid { grid-template-columns: 1fr 1fr; }
+  .about-item:nth-child(3) { border-left: 1px solid var(--line); }
+  .about-item:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .service-grid { gap: 14px; }
+  .service-card { min-height: 350px; }
+  .service-card-content { padding: 22px 17px; }
+  .service-card p { font-size: 11px; }
+  .news-layout, .qualification-inner, .company-layout, .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .recruit-inner { align-items: start; flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 620px; }
+  .hero h1 { font-size: clamp(35px, 10vw, 52px); }
+  .hero-description { font-size: 12px; }
+  .hero-scroll { right: 15px; bottom: 18px; }
+  .about, .service, .news, .qualification, .company, .contact { padding: 75px 0; }
+  .photo { flex-basis: 225px; height: 135px; }
+  .about-grid { grid-template-columns: 1fr 1fr; }
+  .about-item { min-height: 155px; padding: 20px 13px; }
+  .about-item h3 { font-size: 14px; }
+  .slogan { padding: 75px 0; }
+  .slogan h2 { font-size: 27px; }
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 360px; }
+  .news-item { grid-template-columns: 85px 1fr 20px; gap: 10px; }
+  .news-category { display: none; }
+  .qualification-panel { padding: 25px; }
+  .qualification-number strong { font-size: 32px; }
+  .company-row { grid-template-columns: 95px 1fr; }
+  .partner-logos { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; gap: 8px; }
+  .form-row label { padding-top: 0; }
+  .footer-top, .footer-bottom { flex-direction: column; }
+  .footer-links { gap: 15px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="#top" aria-label="AG トップページ">
+      <span class="logo-main">AG.</span>
+      <span class="logo-sub">ELECTRICAL & TELECOM</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="メニューを開く"
+      aria-expanded="false" aria-controls="global-nav">
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="1.6">
+        <path d="M3 7h18M3 12h18M3 17h18"/>
+      </svg>
+    </button>
+
+    <nav class="nav" id="global-nav" aria-label="メインナビゲーション">
+      <a href="#about">About</a>
+      <a href="#service">Service</a>
+      <a href="#company">Company</a>
+      <a href="#recruit">Recruit</a>
+      <a href="#contact" class="nav-contact">Contact ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO：既存サイトのコピー・ロゴ・写真に差し替え -->
+  <section class="hero" aria-label="メインビジュアル">
+    <div class="hero-content">
+      <div class="hero-label">BUILDING THE FUTURE</div>
+      <h1>
+        暮らしを支え、<br>
+        未来をつなぐ。<br>
+        <em>技術で、その先へ。</em>
+      </h1>
+      <p class="hero-description">
+        電気と通信の力で、街の当たり前を支える。<br>
+        確かな技術と誠実な仕事で、次の時代のインフラをつくります。
+      </p>
+      <div class="hero-actions">
+        <a href="#service" class="btn">事業内容を見る <span>↗</span></a>
+        <a href="#company" class="btn btn-outline">AGについて <span>＋</span></a>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#about">SCROLL</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="photo-marquee" aria-label="会社・仕事の風景">
+      <div class="photo-track">
+        <div class="photo"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=650&q=80" alt="現場での施工風景" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=650&q=80" alt="技術者の作業風景" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=650&q=80" alt="スタッフ同士の打ち合わせ" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=650&q=80" alt="技術・設備の確認" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=650&q=80" alt="" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=650&q=80" alt="" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="photo-marquee" aria-label="技術と人の風景">
+      <div class="photo-track reverse">
+        <div class="photo"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=650&q=80" alt="オフィスでの仕事風景" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=650&q=80" alt="技術者による点検" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=650&q=80" alt="チームで働くスタッフ" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=650&q=80" alt="社内の風景" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=650&q=80" alt="" loading="lazy"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=650&q=80" alt="" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="about-intro reveal">
+        <div>
+          <div class="eyebrow">About AG</div>
+          <h2 class="section-title">人と技術で、<br>街の未来を支える。</h2>
+        </div>
+        <p class="section-copy">
+          現場に向き合い、技術を磨き、人とのつながりを大切にする。
+          AGの仕事は、目に見える設備だけでなく、その先にある暮らしを支えることです。
+        </p>
+      </div>
+
+      <div class="about-grid reveal">
+        <a class="about-item" href="#service">
+          <span class="about-number">01 / ELECTRICAL</span>
+          <h3>電気工事</h3>
+          <p>確かな施工で、施設や街の電気を支える。</p>
+          <span class="item-arrow">↗</span>
+        </a>
+        <a class="about-item" href="#service">
+          <span class="about-number">02 / TELECOM</span>
+          <h3>通信工事</h3>
+          <p>人と情報をつなぐ通信インフラを構築する。</p>
+          <span class="item-arrow">↗</span>
+        </a>
+        <a class="about-item" href="#service">
+          <span class="about-number">03 / ENGINEERING</span>
+          <h3>調査・設計</h3>
+          <p>現場を把握し、確かな施工につなげる。</p>
+          <span class="item-arrow">↗</span>
+        </a>
+        <a class="about-item" href="#contact">
+          <span class="about-number">04 / BEYOND</span>
+          <h3>and more.</h3>
+          <p>既存の枠にとらわれず、次の可能性へ。</p>
+          <span class="item-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLOGAN：従来サイトの正式な文言に差し替え -->
+  <section class="slogan">
+    <div class="slogan-mark" aria-hidden="true">AG</div>
+    <div class="container slogan-inner reveal">
+      <div class="eyebrow">Our Philosophy</div>
+      <h2>技術をつなぐ。<br><span>人をつなぐ。</span>未来をつくる。</h2>
+      <p>一つひとつの仕事に誠実に向き合い、次の当たり前をつくる。</p>
+    </div>
+  </section>
+
+  <!-- SERVICE -->
+  <section class="service" id="service">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Service</div>
+          <h2 class="section-title">あなたに合った<br>AGの入り口へ。</h2>
+        </div>
+        <p class="section-copy">
+          工事のご依頼から、地域での暮らし、これからのキャリアまで。
+          目的に合わせて必要な情報をご案内します。
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <a class="service-card reveal" href="#contact">
+          <div class="service-card-content">
+            <div class="eyebrow">For Business</div>
+            <h3>法人のお客様へ</h3>
+            <p>電気・通信工事、調査・設計のご相談。事業を支える確かな技術をご提供します。</p>
+            <div class="card-bottom">
+              <span>事業・工事のご相談</span>
+              <span class="card-circle">↗</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="service-card reveal" href="#contact">
+          <div class="service-card-content">
+            <div class="eyebrow">For Community</div>
+            <h3>地域住民のお客様へ</h3>
+            <p>地域の暮らしに寄り添い、身近なお困りごとやご相談に向き合います。</p>
+            <div class="card-bottom">
+              <span>地域の皆様からのご相談</span>
+              <span class="card-circle">↗</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="service-card reveal" href="#recruit">
+          <div class="service-card-content">
+            <div class="eyebrow">For Students</div>
+            <h3>学生の方へ</h3>
+            <p>技術を身につけ、社会を支える仕事へ。AGでの働き方やキャリアをご紹介します。</p>
+            <div class="card-bottom">
+              <span>採用・仕事について</span>
+              <span class="card-circle">↗</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS：実際のニュースに差し替え -->
+  <section class="news" id="news">
+    <div class="container news-layout">
+      <div class="reveal">
+        <div class="eyebrow">News & Topics</div>
+        <h2 class="section-title">AGの最新情報。</h2>
+        <p class="section-copy">
+          お知らせや活動情報をお届けします。
+        </p>
+        <a class="arrow-link" href="#news-list">ニュース一覧 <span>↗</span></a>
+      </div>
+
+      <div class="news-list reveal" id="news-list">
+        <a class="news-item" href="#contact">
+          <time class="news-date" datetime="2026-10-01">2026.10.01</time>
+          <span class="news-category">お知らせ</span>
+          <span class="news-title">ホームページリニューアルのお知らせ</span>
+          <span>↗</span>
+        </a>
+        <a class="news-item" href="#service">
+          <time class="news-date" datetime="2026-09-01">2026.09.01</time>
+          <span class="news-category">事業情報</span>
+          <span class="news-title">事業内容のご案内</span>
+          <span>↗</span>
+        </a>
+        <a class="news-item" href="#recruit">
+          <time class="news-date" datetime="2026-08-01">2026.08.01</time>
+          <span class="news-category">採用情報</span>
+          <span class="news-title">採用に関するお知らせ</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALIFICATIONS：実際の人数・資格に差し替え -->
+  <section class="qualification" id="qualification">
+    <div class="container qualification-inner">
+      <div class="reveal">
+        <div class="eyebrow">Our Expertise</div>
+        <h2 class="section-title">技術を磨き、<br>信頼を積み重ねる。</h2>
+        <p class="section-copy">
+          一人ひとりの知識と技術を大切に。
+          資格取得と人材育成を通じて、施工品質の向上を目指します。
+        </p>
+      </div>
+      <div class="qualification-panel reveal">
+        <div class="eyebrow">Qualifications</div>
+        <p>有資格者数・保有資格</p>
+        <div class="qualification-numbers">
+          <div class="qualification-number">
+            <strong>2</strong><span>名</span>
+            <p>第一種電気工事士</p>
+          </div>
+          <div class="qualification-number">
+            <strong>3</strong><span>名</span>
+            <p>第二種電気工事士</p>
+          </div>
+          <div class="qualification-number">
+            <strong>1</strong><span>名</span>
+            <p>2級電気工事施工管理技士</p>
+          </div>
+          <div class="qualification-number">
+            <strong>2</strong><span>名</span>
+            <p>高所作業車運転技能者(10ｍ以上)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section class="company" id="company">
+    <div class="container company-layout">
+      <div class="reveal">
+        <div class="eyebrow">Company</div>
+        <h2 class="section-title">会社情報</h2>
+        <p class="section-copy">
+          AGの基本情報と、事業を支えてくださるパートナー企業をご紹介します。
+        </p>
+        <a class="arrow-link" href="#contact">お問い合わせ <span>↗</span></a>
+      </div>
+
+      <div class="reveal">
+        <dl class="company-info">
+          <div class="company-row">
+            <dt>会社名</dt>
+            <dd>株式会社AG</dd>
+          </div>
+          <div class="company-row">
+            <dt>所在地</dt>
+            <dd>〒241-0031<br>神奈川県横浜市旭区今宿西町346-2</dd>
+          </div>
+          <div class="company-row">
+            <dt>代表取締役</dt>
+            <dd>三縄 健太郎</dd>
+          </div>
+          <div class="company-row">
+            <dt>設立</dt>
+            <dd>2019年7月8日（令和元年）</dd>
+          </div>
+          <div class="company-row">
+            <dt>事業内容</dt>
+            <dd>電気工事・通信工事・調査・設計</dd>
+          </div>
+          <div class="company-row">
+            <dt>電話番号</dt>
+            <dd>045-263-9849</dd>
+          </div>
+            <div class="company-row">
+            <dt>メールアドレス</dt>
+            <dd>info@ag-inc.net</dd>
+          </div>
+            <div class="company-row">
+            <dt>建設業許可</dt>
+            <dd>神奈川県知事 許可(般－4)第 90685 号</dd>
+          </div>
+        </dl>
+
+        <div class="partner-area">
+          <h3>PARTNERS / 主要取引先・提携企業</h3>
+          <div class="partner-logos">
+            <div class="partner-logo">提携企業ロゴ 01</div>
+            <div class="partner-logo">提携企業ロゴ 02</div>
+            <div class="partner-logo">提携企業ロゴ 03</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+  <!-- RECRUIT -->
+  <section class="recruit" id="recruit">
+    <div class="container recruit-inner reveal">
+      <div>
+        <div class="eyebrow">Recruit / Join Our Team</div>
+        <h2>技術を身につけ、<br>街の未来をつくる仲間へ。</h2>
+        <p>
+          仕事を通じて成長したい。誰かの役に立つ技術を身につけたい。
+          AGは、一緒に未来をつくる仲間を探しています。
+        </p>
+      </div>
+      <a class="btn" href="#contact">求人情報を見る <span>↗</span></a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-layout">
+      <div class="reveal">
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="contact-note">
+          工事のご依頼、各種ご相談、採用についてなど、
+          お気軽にお問い合わせください。
+        </p>
+        <strong>株式会社AG</strong>
+        <p class="contact-note">内容を確認のうえ、担当者よりご連絡いたします。</p>
+      </div>
+
+      <form class="contact-form reveal" id="contact-form">
+        <div class="form-row">
+          <label for="contact-type">お問い合わせ種別<span class="required">必須</span></label>
+          <select class="form-control" id="contact-type" name="type" required>
+            <option value="">選択してください</option>
+            <option>電気工事について</option>
+            <option>通信工事について</option>
+            <option>調査・設計について</option>
+            <option>地域のお客様からのご相談</option>
+            <option>採用について</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="contact-name">お名前<span class="required">必須</span></label>
+          <input class="form-control" id="contact-name" name="name" autocomplete="name" required placeholder="例：山田 太郎">
+        </div>
+        <div class="form-row">
+          <label for="contact-company">会社名</label>
+          <input class="form-control" id="contact-company" name="company" autocomplete="organization" placeholder="会社名（任意）">
+        </div>
+        <div class="form-row">
+          <label for="contact-email">メールアドレス<span class="required">必須</span></label>
+          <input class="form-control" id="contact-email" name="email" type="email" autocomplete="email" required placeholder="example@email.com">
+        </div>
+        <div class="form-row">
+          <label for="contact-phone">電話番号</label>
+          <input class="form-control" id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="電話番号（任意）">
+        </div>
+        <div class="form-row">
+          <label for="contact-message">お問い合わせ内容<span class="required">必須</span></label>
+          <textarea class="form-control" id="contact-message" name="message" required placeholder="お問い合わせ内容をご入力ください"></textarea>
+        </div>
+
+        <label class="form-check">
+          <input type="checkbox" name="privacy" required>
+          <span>個人情報の取り扱いについて確認し、同意します。</span>
+        </label>
+
+        <button type="submit" class="btn form-submit">
+          入力内容を確認する <span>→</span>
+        </button>
+        <p id="form-message" role="status" aria-live="polite"
+          style="font-size:12px;color:#07558d"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="logo" href="#top">
+          <span class="logo-main">AG.</span>
+          <span class="logo-sub">ELECTRICAL & COMMUNICATION</span>
+        </a>
+        <p class="footer-description">
+          株式会社AG<br>
+          電気工事・通信工事・調査・設計
+        </p>
+      </div>
+      <nav class="footer-links" aria-label="フッターナビゲーション">
+        <a href="#about">About</a>
+        <a href="#service">Service</a>
+        <a href="#company">Company</a>
+        <a href="#recruit">Recruit</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="copyright-year">2026</span> AG Inc. All Rights Reserved.</span>
+      <a href="#contact">個人情報の取り扱いについて ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav");
+
+  // モバイルメニュー
+  toggle.addEventListener("click", () => {
+    const opened = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(opened));
+    toggle.setAttribute("aria-label", opened ? "メニューを閉じる" : "メニューを開く");
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "メニューを開く");
+    });
+  });
+
+  // スクロール時にコンテンツを表示
+  const revealItems = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(item => observer.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add("is-visible"));
+  }
+
+  // コピーライトの年
+  document.getElementById("copyright-year").textContent =
+    new Date().getFullYear();
+
+  // フォームはデモ用。実際の送信先は未接続。
+  document.getElementById("contact-form").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const message = document.getElementById("form-message");
+    message.textContent =
+      "デモ画面です。送信機能を利用するには、フォーム送信先の設定が必要です。";
+  });
+})();
+</script>
+
+</body>
+</html>
